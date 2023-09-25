@@ -24,7 +24,7 @@ public class Search extends HttpServlet {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("Insert into history values(?, ?);");
             preparedStatement.setString(1, keyword);
-            preparedStatement.setString(2, "http://localhost:8080/SearchEngine/Search?keywords="+keyword);
+            preparedStatement.setString(2, "http://localhost:8080/SearchEngine/Search?keyword="+keyword);
             preparedStatement.executeUpdate();
             // getting results after running the running query
             ResultSet resultSet = connection.createStatement().executeQuery("select pagetitle, pagelink,(length(lower(pageText))-length(replace(lower(pageText),'" + keyword.toLowerCase() + "','')))/length('" + keyword.toLowerCase() + "') as countoccurence from pages order by countoccurence desc limit 30;");
