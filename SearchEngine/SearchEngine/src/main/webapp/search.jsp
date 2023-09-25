@@ -19,8 +19,8 @@
             <th>Link</th>
         </tr>
         <%
-            ArrayList<SearchResult> results = (ArrayList<SearchResult>).getAttribute("results");
-            for(SearchResult result:results{
+            ArrayList<SearchResult> results = (ArrayList<SearchResult>)request.getAttribute("results");
+            for(SearchResult result:results){
         %>
         <tr>
             <td><%out.println(result.getTitle());%></td>
